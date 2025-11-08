@@ -13,7 +13,7 @@ export default function App() {
         <Contact />
       </main>
       <footer className="border-t border-white/5 py-10 text-center text-xs text-white/50">
-        © {new Date().getFullYear()} Auron — Minimal • Futuristic • Animated
+        © {new Date().getFullYear()} Your Name — Minimal • Futuristic • Animated
       </footer>
     </div>
   );
