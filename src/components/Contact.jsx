@@ -1,45 +1,73 @@
-import { useState } from 'react';
+import { motion } from 'framer-motion';
 
 export default function Contact() {
-  const [status, setStatus] = useState('');
-
-  const onSubmit = (e) => {
-    e.preventDefault();
-    setStatus('Thank you! I will get back to you soon.');
-    e.currentTarget.reset();
-  };
-
   return (
-    <section id="contact" className="relative py-24 bg-gradient-to-b from-black via-black to-black text-white">
-      <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(ellipse_at_top,rgba(255,255,255,0.06),transparent_60%)]" />
-      <div className="relative mx-auto w-11/12 max-w-6xl">
-        <div className="mb-10">
-          <h2 className="text-3xl md:text-4xl font-semibold">Get in touch</h2>
-          <p className="text-white/70">Let’s talk data migrations, web systems, or collaborations.</p>
-        </div>
+    <section id="contact" className="relative py-24">
+      <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(60%_40%_at_50%_100%,rgba(6,182,212,0.12),transparent)]" />
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-2xl">
+          <motion.h2
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.6 }}
+            transition={{ duration: 0.6 }}
+            className="text-2xl sm:text-3xl font-bold text-white text-center"
+          >
+            Let’s collaborate
+          </motion.h2>
+          <motion.p
+            initial={{ opacity: 0, y: 12 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.6 }}
+            transition={{ duration: 0.6, delay: 0.05 }}
+            className="mt-2 text-center text-white/70"
+          >
+            Tell me about your idea and I’ll respond shortly.
+          </motion.p>
 
-        <div className="grid md:grid-cols-2 gap-8">
-          <div className="backdrop-blur-xl bg-white/5 border border-white/10 rounded-3xl p-6">
-            <form onSubmit={onSubmit} className="space-y-4">
-              <input required placeholder="Your name" className="w-full px-4 py-3 rounded-xl bg-black/40 border border-white/10 text-white placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-amber-400/40" />
-              <input required type="email" placeholder="Email" className="w-full px-4 py-3 rounded-xl bg-black/40 border border-white/10 text-white placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-amber-400/40" />
-              <textarea required placeholder="Message" rows={5} className="w-full px-4 py-3 rounded-xl bg-black/40 border border-white/10 text-white placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-amber-400/40" />
-              <button className="px-5 py-2.5 rounded-xl bg-gradient-to-r from-yellow-500 to-amber-400 text-black font-medium shadow-[0_0_30px_rgba(234,179,8,0.35)] hover:shadow-[0_0_45px_rgba(234,179,8,0.5)] transition-shadow">
-                Send Message
+          <motion.form
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.4 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            onSubmit={(e) => e.preventDefault()}
+            className="mt-8 rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-xl shadow-xl shadow-black/30"
+          >
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label className="block text-sm text-white/70">Name</label>
+                <input
+                  type="text"
+                  className="mt-1 w-full rounded-xl border border-white/10 bg-white/5 px-3 py-2 text-white placeholder-white/40 outline-none focus:border-white/20"
+                  placeholder="Jane Doe"
+                />
+              </div>
+              <div>
+                <label className="block text-sm text-white/70">Email</label>
+                <input
+                  type="email"
+                  className="mt-1 w-full rounded-xl border border-white/10 bg-white/5 px-3 py-2 text-white placeholder-white/40 outline-none focus:border-white/20"
+                  placeholder="jane@studio.com"
+                />
+              </div>
+            </div>
+            <div className="mt-4">
+              <label className="block text-sm text-white/70">Message</label>
+              <textarea
+                rows={4}
+                className="mt-1 w-full rounded-xl border border-white/10 bg-white/5 px-3 py-2 text-white placeholder-white/40 outline-none focus:border-white/20"
+                placeholder="Project goals, timeline, and budget..."
+              />
+            </div>
+            <div className="mt-6 flex justify-end">
+              <button
+                type="submit"
+                className="rounded-xl bg-gradient-to-r from-fuchsia-500/80 via-amber-400/80 to-cyan-400/80 px-5 py-2.5 text-sm font-semibold text-black shadow-[0_0_30px_-6px_rgba(251,191,36,0.5)] hover:shadow-[0_0_35px_-4px_rgba(251,191,36,0.6)] transition"
+              >
+                Send message
               </button>
-              {status && <p className="text-emerald-300 text-sm">{status}</p>}
-            </form>
-          </div>
-
-          <div className="backdrop-blur-xl bg-white/5 border border-white/10 rounded-3xl p-6 space-y-3 text-white/80">
-            <p><span className="text-white/60">Name:</span> Jagadeesh Kokkula</p>
-            <p><span className="text-white/60">Role:</span> Data Migration Specialist & Web Developer</p>
-            <p><span className="text-white/60">Location:</span> Hyderabad, Telangana, India</p>
-            <p><span className="text-white/60">Birthday:</span> 8 May 2001</p>
-            <p><span className="text-white/60">Phone:</span> +91 97010 18462</p>
-            <p><span className="text-white/60">Email:</span> <a className="underline" href="mailto:jagadeeshkokkula123@gmail.com">jagadeeshkokkula123@gmail.com</a></p>
-            <a className="underline" href="https://nani8501.github.io/new.github.io/" target="_blank" rel="noreferrer">Personal Website</a>
-          </div>
+            </div>
+          </motion.form>
         </div>
       </div>
     </section>

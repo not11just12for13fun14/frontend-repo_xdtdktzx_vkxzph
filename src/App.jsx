@@ -1,22 +1,20 @@
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
-import Skills from './components/Skills';
-import Experience from './components/Experience';
+import Projects from './components/Projects';
 import Contact from './components/Contact';
 
-function App() {
+export default function App() {
   return (
-    <div className="min-h-screen bg-black text-white font-inter">
+    <div className="min-h-screen bg-black text-white selection:bg-fuchsia-500/30 selection:text-white">
       <Navbar />
-      <Hero />
-      <Skills />
-      <Experience />
-      <Contact />
-      <footer className="py-10 text-center text-white/50 border-t border-white/10 bg-black/60">
-        <p>© {new Date().getFullYear()} Jagadeesh Kokkula • Built with React</p>
+      <main className="pt-24">
+        <Hero />
+        <Projects />
+        <Contact />
+      </main>
+      <footer className="border-t border-white/5 py-10 text-center text-xs text-white/50">
+        © {new Date().getFullYear()} Auron — Minimal • Futuristic • Animated
       </footer>
     </div>
   );
 }
-
-export default App;
